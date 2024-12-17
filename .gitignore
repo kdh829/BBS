@@ -1,3 +1,5 @@
+/build/
+
 ### Eclipse ###   
 .settings/
 .classpath
@@ -8,6 +10,3 @@ Servers/
 
 # JAR
 *.jar 
-
-# build/ 디렉터리에 있는 모든 파일 무시
-build/
