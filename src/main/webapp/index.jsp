@@ -4,11 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="css/custom.css">
 <title>JSP 게시판 웹 사이트</title>
 </head>
 <body>
 	<script>
-		location.href = 'login.jsp'; // 로그인 페이지로 이동하라는 내용. BUT, 생성이 안 됌
+		location.href = 'main.jsp'; // 로그인 페이지로 이동하라는 내용. BUT, 생성이 안 됌
 	</script>
 </body>
 </html>

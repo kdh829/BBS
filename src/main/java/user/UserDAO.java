@@ -12,9 +12,9 @@ public class UserDAO {
 	private ResultSet rs; // 어떤 정보를 담을 수 있느 하나의 객체
 	// Ctrl + Shift + Key 'O' -> 외부 라이브러리를 추가
 	
-	public UserDAO() { // 생성자
+	public UserDAO() { // 생성자 ( 데이터 접근 객체 )
 		try { // 자동 db 커넥션이 이뤄지도록 함
-			String dbURL = "jdbc:mysql//localhost:3306/BBS3";
+			String dbURL = "jdbc:mysql://localhost:3306/BBS3"; // 3306 포트는 우리 컴퓨터에 설치한 mysql 자체를 의미
 			String dbID = "root";
 			String dbPassword = "bently2021@"; // 계정 로그인하기
 			Class.forName("com.mysql.jdbc.Driver"); // mysql 드라이브 접속( mysql 접속용 라이브러리 역할 )
@@ -22,7 +22,8 @@ public class UserDAO {
 		} catch (Exception e) { // 예외처리
 			e.printStackTrace(); // 오류가 뭔지 출력
 		}
-	}
+	} 
+	
 // 미리 매개변수 ID, PW를 가져온다 -> SQL 명령문을 작성( 조건에 ? 삽입 ) -> 예외처리하여 실행 잘 되면, ID를 조건으로 PW를 알아낸다.
 // 근데 만약, 잘 실행되지 않으면 StackTrace 즉, 어떤 오류인지 메시지와 함께 오류를 출력한다.
 		public int login(String userID, String userPassword) { // 매개변수로 넘어옴
@@ -35,7 +36,7 @@ public class UserDAO {
 					if(rs.getString(1).equals(userPassword)) { // 아이디가 있으면 PW를 받아서
 						return 1; // 로그인 성공 출력 -> 함수 강제 종료
 					}
-					else
+					else 
 						return 0; // 비밀번호 불일치
 				} 
 				return -1; //데이터가 없으면 아이디가 없다고 메시지가 뜬다.
@@ -43,5 +44,22 @@ public class UserDAO {
 				e.printStackTrace();
 			}
 			return -2; // DB 오류
-		}
-}
+		} 
+		
+		public int join(User user) {
+			String SQL = "INSERT INTO USER VALUES (?, ?, ?, ?, ?)";
+			try {
+					pstmt = conn.prepareStatement(SQL); // SQL을 넣는 방식
+					pstmt.setString(1, user.getUserID());
+					pstmt.setString(2, user.getUserPassword());
+					pstmt.setString(3, user.getUserName());
+					pstmt.setString(4, user.getUserGender());
+					pstmt.setString(5, user.getUserEmail());				
+					
+					return pstmt.executeUpdate(); // 해당 문장을 실행한 결과를 넣는다.
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+			return -1; // DB 연결 오류
+	}
+} 
