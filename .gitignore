@@ -1,1 +1,10 @@
-/build/
+### Eclipse ###   
+.settings/
+.classpath
+.metadata/
+.recommenders/
+RemoteSystemsTempFiles/
+Servers/
+
+# JAR
+*.jar 

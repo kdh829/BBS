@@ -97,7 +97,7 @@
     			for(int i=0; i < list.size(); i++){ // 
         		%>    				
     			<tr> <!-- 한 행씩 가져오기 -->
-    				<td><%= list.get(i).getBbsID() %></td>
+    				<td><%= list.get(i).getBbsID() %></td> 
     				<td><a href="view.jsp?bbsID=<%= list.get(i).getBbsID()%>"><%= list.get(i).getBbsTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt")%></td>
     				<td colspan="2" style="min-height: 200px; text-align: left;">  				
     				<td><%= list.get(i).getUserID() %></td>
