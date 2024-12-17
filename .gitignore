@@ -6,5 +6,8 @@
 RemoteSystemsTempFiles/
 Servers/
 
+
 # JAR
 *.jar 
+
+/build/
