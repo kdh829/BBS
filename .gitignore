@@ -1,0 +1,12 @@
+# JAR
+*.jar 
+
+### Eclipse ###
+/build/   
+.settings/
+.classpath
+.metadata/
+.recommenders/
+RemoteSystemsTempFiles/
+Servers/
+
