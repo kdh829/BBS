@@ -10,4 +10,4 @@ Servers/
 # JAR
 *.jar 
 
-/build/
+build/
